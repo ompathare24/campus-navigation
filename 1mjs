@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>College Navigation</title>
+</head>
+<body>
+    <header>
+        <h1>AJEEKYA DY PAIL</h1>
+    </header>
+        <!-- Add these lines inside the main tag in index.html -->
+    <main>
+        <div id="map-container">
+            <img src="assets\images\OG_MAP.jpg" alt="Campus Map">
+            <div id="start-end-points">
+                <div id="start-point">
+                    <label for="start-input">Start Point:</label>
+                    <input type="text" id="start-input" value="Main Gate" readonly>
+                </div>
+                <div id="end-point">
+                    <label for="end-input">End Point:</label>
+                    <input type="text" id="end-input" placeholder="Type or select end location">
+                </div>
+                <button id="find-route-btn">Find Route</button>
+                
+            </div>
+        </div>
+        
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
