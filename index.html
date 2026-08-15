@@ -1,123 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ADYPU CampusNav</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="description"
+        content="Smart Campus Navigation - Ajeenkya DY Patil University"
+    >
+
+    <title>
+        ADYPU | Smart Campus Navigation
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
 
-<!-- =====================================
+<!-- =====================================================
      WELCOME SCREEN
-===================================== -->
+===================================================== -->
 
-<div id="welcomeScreen" class="welcome-screen">
+<section
+    id="welcomeScreen"
+    class="welcome-screen"
+>
 
-    <div class="glow glow-one"></div>
-    <div class="glow glow-two"></div>
 
-    <div class="welcome-content">
+    <!-- Animated background -->
 
-        <div class="welcome-logo">
+    <div class="background-grid"></div>
+
+    <div class="orb orb-1"></div>
+
+    <div class="orb orb-2"></div>
+
+    <div class="orb orb-3"></div>
+
+
+    <!-- Top branding -->
+
+    <div class="welcome-top">
+
+        <span>
+            ADYPU
+        </span>
+
+        <span>
+            CAMPUS NAVIGATION
+        </span>
+
+    </div>
+
+
+
+    <!-- Main welcome -->
+
+    <div class="welcome-center">
+
+
+        <div class="logo-ring">
+
+            <div class="logo-glow"></div>
+
             <img
                 src="logo.png"
-                alt="Ajeenkya DY Patil University"
+                alt="Ajeenkya DY Patil University Logo"
             >
+
         </div>
 
 
-        <p class="welcome-small">
+        <p class="welcome-label">
+
             WELCOME TO
+
         </p>
 
 
         <h1>
+
             Ajeenkya
-            <span>DY Patil</span>
+
+            <span>
+                DY Patil
+            </span>
+
             University
+
         </h1>
 
 
-        <p class="welcome-subtitle">
-            Smart Campus Navigation
-        </p>
+        <div class="title-line"></div>
 
 
-        <div class="welcome-line"></div>
+        <p class="welcome-description">
 
-
-        <p class="welcome-address">
-
-            DY Patil Knowledge City Road,
-            Via Lohgaon, Airport Road,<br>
-
-            Charholi Budruk, Pune,
-            Maharashtra 411081
+            Discover your campus.
+            <br>
+            Find your destination.
+            <br>
+            Navigate with confidence.
 
         </p>
 
 
         <button
             id="enterCampus"
-            class="enter-button">
+            class="enter-campus"
+        >
 
-            Explore Campus
+            <span>
+                ENTER CAMPUS
+            </span>
 
-            <span>→</span>
+            <b>
+                →
+            </b>
 
         </button>
 
 
-        <div class="loading-dots">
+        <p class="welcome-location">
 
-            <i></i>
-            <i></i>
-            <i></i>
+            📍 Charholi Budruk, Pune, Maharashtra
 
-        </div>
+        </p>
+
 
     </div>
 
-</div>
+
+
+    <!-- Team credit -->
+
+    <div class="team-credit">
+
+        <span>
+            Designed & Developed by
+        </span>
+
+        <strong>
+
+            Hitesh Shankar Pathare<br>
+            Om Ravindra Chaudhari<br>
+            Omkar Heraman Dere<br>
+            Pranit Vijay Tupe<br>
+            Pratik Kailas Dhole
+
+        </strong>
+
+    </div>
+
+
+    <!-- Bottom -->
+
+    <div class="welcome-bottom">
+
+        <span>
+            DY Patil Knowledge City
+        </span>
+
+        <span>
+            •
+        </span>
+
+        <span>
+            Pune, Maharashtra 411081
+        </span>
+
+    </div>
+
+
+</section>
 
 
 
-<!-- =====================================
-     MAIN APPLICATION
-===================================== -->
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
 
 <div
     id="app"
-    class="app hidden">
+    class="app hidden"
+>
 
 
-<!-- HEADER -->
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-<header class="topbar">
-
-
-    <div class="brand">
-
-        <img
-            src="logo.png"
-            alt="ADYPU Logo"
-        >
+<header class="navbar">
 
 
-        <div>
+    <div class="navbar-brand">
+
+
+        <div class="college-logo">
+
+            <img
+                src="logo.png"
+                alt="ADYPU Logo"
+            >
+
+        </div>
+
+
+        <div class="brand-text">
 
             <strong>
                 Ajeenkya DY Patil University
             </strong>
 
-            <small>
+            <span>
                 Smart Campus Navigation
-            </small>
+            </span>
 
         </div>
 
@@ -125,21 +235,32 @@
 
 
 
-    <div class="contact-bar">
+    <div class="navbar-right">
 
 
-        <a href="tel:08956487912">
+        <a
+            href="tel:08956487912"
+            class="nav-contact"
+        >
 
-            ☎ 08956487912
+            ☎
+
+            <span>
+                08956487912
+            </span>
 
         </a>
 
 
         <a
             href="https://adypu.edu.in/"
-            target="_blank">
+            target="_blank"
+            class="website-button"
+        >
 
-            🌐 Official Website
+            University Website
+
+            ↗
 
         </a>
 
@@ -151,141 +272,263 @@
 
 
 
-<!-- ADDRESS -->
+<!-- =====================================================
+     UNIVERSITY INFO
+===================================================== -->
 
-<div class="address-bar">
+<div class="university-bar">
 
-    <span>
 
-        📍 DY Patil Knowledge City Road,
+    <div>
+
+        <span class="pin">
+            ●
+        </span>
+
+        DY Patil Knowledge City Road,
         Via Lohgaon, Airport Road,
         Charholi Budruk, Pune,
         Maharashtra 411081
 
-    </span>
+    </div>
 
 
     <a
         href="https://adypu.edu.in/"
-        target="_blank">
+        target="_blank"
+    >
 
-        Visit University Website ↗
+        adypu.edu.in
 
     </a>
+
 
 </div>
 
 
 
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <main>
 
 
-<!-- HERO -->
+<section class="hero-section">
 
-<section class="hero">
 
-    <div>
+    <div class="hero-content">
 
-        <p class="tag">
+
+        <div class="mini-label">
+
+            <span></span>
+
             CAMPUS WAYFINDER
-        </p>
+
+        </div>
 
 
-        <h1>
+        <h2>
 
-            Find your way<br>
+            Your campus.
+
+            <br>
 
             <span>
-                around campus.
+                Your destination.
             </span>
 
-        </h1>
+            <br>
+
+            One simple route.
+
+        </h2>
 
 
-        <p class="description">
+        <p>
 
             Navigate Ajeenkya DY Patil University
-            easily. Select your destination and
-            discover the route from the Main Gate.
+            effortlessly. Select where you want
+            to go and discover the correct route
+            starting from the Main Gate.
 
         </p>
 
+
+        <div class="hero-stats">
+
+
+            <div>
+
+                <strong>
+                    10+
+                </strong>
+
+                <span>
+                    Destinations
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    01
+                </strong>
+
+                <span>
+                    Main Gate
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    24/7
+                </strong>
+
+                <span>
+                    Available
+                </span>
+
+            </div>
+
+
+        </div>
+
+
     </div>
 
 
-    <div class="hero-badge">
 
-        <div class="badge-icon">
-            🧭
-        </div>
+    <div class="hero-visual">
 
-        <div>
 
-            <strong>
-                Smart Navigation
-            </strong>
+        <div class="floating-card card-top">
 
             <span>
-                Campus route system
+                📍
             </span>
+
+            <div>
+
+                <strong>
+                    Starting Point
+                </strong>
+
+                <small>
+                    Main Gate
+                </small>
+
+            </div>
 
         </div>
 
+
+        <div class="compass">
+
+            <div class="compass-ring">
+
+                <span class="north">
+                    N
+                </span>
+
+                <div class="compass-arrow">
+                    ↑
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="floating-card card-bottom">
+
+            <span>
+                🧭
+            </span>
+
+            <div>
+
+                <strong>
+                    Smart Navigation
+                </strong>
+
+                <small>
+                    Find your way
+                </small>
+
+            </div>
+
+        </div>
+
+
     </div>
+
 
 </section>
 
 
 
-<!-- WORKSPACE -->
+<!-- =====================================================
+     NAVIGATION AREA
+===================================================== -->
 
-<section class="workspace">
-
-
-<!-- =====================================
-     CONTROL PANEL
-===================================== -->
-
-<aside class="panel">
+<section class="navigation-section">
 
 
-    <div class="panel-header">
+<!-- LEFT PANEL -->
+
+<aside class="navigation-panel">
+
+
+    <div class="panel-title">
+
 
         <div>
 
-            <p class="small-title">
+            <span>
                 NAVIGATION
-            </p>
+            </span>
 
-            <h2>
-                Plan a Route
-            </h2>
+            <h3>
+                Plan your route
+            </h3>
 
         </div>
 
 
-        <span class="live">
-            ● Live
-        </span>
+        <div class="status">
+
+            <i></i>
+
+            ONLINE
+
+        </div>
+
 
     </div>
 
 
 
-    <!-- START -->
+    <!-- Start -->
 
-    <div class="field">
+    <div class="location-field">
+
 
         <label>
-            START LOCATION
+            STARTING FROM
         </label>
 
 
-        <div class="input-box">
+        <div class="location-input start-input">
 
-            <span class="location-icon start">
-                ●
-            </span>
+
+            <div class="dot start-dot"></div>
 
 
             <input
@@ -294,63 +537,61 @@
                 readonly
             >
 
+
         </div>
 
-    </div>
-
-
-
-    <div class="route-connector">
-
-        <span></span>
 
     </div>
 
 
 
-    <!-- DESTINATION -->
+    <div class="route-connector"></div>
 
-    <div class="field destination">
+
+
+    <!-- Destination -->
+
+    <div class="location-field destination">
+
 
         <label>
-            DESTINATION
+            WHERE DO YOU WANT TO GO?
         </label>
 
 
-        <div class="input-box">
+        <div class="location-input">
 
-            <span class="location-icon end">
-                ●
-            </span>
+
+            <div class="dot end-dot"></div>
 
 
             <input
                 id="destinationInput"
-                type="text"
-                placeholder="Search destination..."
+                placeholder="Search campus destination..."
                 autocomplete="off"
             >
+
 
         </div>
 
 
         <div
             id="suggestions"
-            class="suggestions">
-        </div>
+            class="suggestions"
+        ></div>
+
 
     </div>
 
 
 
-    <!-- BUTTON -->
-
     <button
         id="routeButton"
-        class="route-button">
+        class="find-route"
+    >
 
         <span>
-            Find Route
+            Find My Route
         </span>
 
         <b>
@@ -363,40 +604,46 @@
 
     <button
         id="clearButton"
-        class="clear-button">
+        class="clear-route"
+    >
 
-        Clear Selection
+        Clear destination
 
     </button>
 
 
 
-    <!-- POPULAR -->
+    <!-- Popular -->
 
-    <div class="quick">
+    <div class="popular-section">
 
-        <p>
+
+        <div class="popular-title">
+
             POPULAR DESTINATIONS
-        </p>
+
+        </div>
 
 
         <div
             id="quickLocations"
-            class="chips">
-        </div>
+            class="chips"
+        ></div>
+
 
     </div>
 
 
 
-    <!-- RESULT -->
+    <!-- Result -->
 
     <div
         id="result"
-        class="result">
+        class="route-result"
+    >
 
 
-        <div class="result-icon">
+        <div class="success-icon">
             ✓
         </div>
 
@@ -404,14 +651,14 @@
         <div>
 
             <strong id="resultTitle">
-                Route Ready
+                Route Found
             </strong>
 
 
-            <p id="resultText">
-            </p>
+            <p id="resultText"></p>
 
         </div>
+
 
     </div>
 
@@ -420,36 +667,38 @@
 
 
 
-<!-- =====================================
+<!-- =====================================================
      MAP
-===================================== -->
+===================================================== -->
 
-<section class="map-card">
+<section class="map-section">
 
 
-    <div class="map-header">
+    <div class="map-top">
 
 
         <div>
 
-            <strong>
-                Campus Map
-            </strong>
-
-
             <span>
-                Interactive Campus Overview
+                CAMPUS MAP
             </span>
+
+            <h3>
+                Explore Ajeenkya DY Patil University
+            </h3>
 
         </div>
 
 
         <button
-            id="resetButton">
+            id="resetButton"
+            class="reset-button"
+        >
 
-            ⌖ Reset
+            ⌖ Reset Map
 
         </button>
+
 
     </div>
 
@@ -457,61 +706,57 @@
 
     <div
         id="mapContainer"
-        class="map-container">
+        class="map-container"
+    >
 
 
         <img
             id="campusMap"
             src="OG_MAP.jpg"
-            alt="ADYPU Campus Map"
+            alt="Ajeenkya DY Patil University Campus Map"
         >
 
 
-        <!-- Route line -->
-
         <div
             id="routeLine"
-            class="route-line">
-        </div>
+            class="route-line"
+        ></div>
 
-
-        <!-- Start -->
 
         <div
             id="startMarker"
-            class="marker start-marker">
-        </div>
+            class="marker start-marker"
+        ></div>
 
-
-        <!-- Destination -->
 
         <div
             id="endMarker"
-            class="marker end-marker">
-        </div>
-
+            class="marker end-marker"
+        ></div>
 
 
         <!-- Zoom -->
 
         <div class="map-controls">
 
+
             <button id="zoomIn">
                 +
             </button>
+
 
             <button id="zoomOut">
                 −
             </button>
 
+
         </div>
 
 
+        <div class="map-hint">
 
-        <div class="map-message">
-
-            Select a destination
-            to show route
+            Select a destination to display
+            the route from Main Gate
 
         </div>
 
@@ -524,11 +769,14 @@
 
 </section>
 
+
 </main>
 
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -550,7 +798,10 @@
 
         📍 Charholi Budruk, Pune
 
-        &nbsp; • &nbsp;
+    </div>
+
+
+    <div>
 
         ☎ 08956487912
 
@@ -559,9 +810,10 @@
 
     <a
         href="https://adypu.edu.in/"
-        target="_blank">
+        target="_blank"
+    >
 
-        adypu.edu.in ↗
+        Official Website ↗
 
     </a>
 
@@ -573,14 +825,18 @@
 
 
 
+<!-- TOAST -->
+
 <div
     id="toast"
-    class="toast">
-</div>
+    class="toast"
+></div>
 
 
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
