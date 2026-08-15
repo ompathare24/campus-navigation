@@ -1,224 +1,192 @@
-/* =========================================
-   CAMPUS NAVIGATION
-========================================= */
-
-
-/* DESTINATIONS */
-
 const locations = [
-
-    "SOE Building",
-    "Student Parking",
-    "Tuck Shop",
-    "Hostel",
-    "DY PATIL School",
-    "Dental Building",
-    "Dental Parking",
-    "Canteen",
-    "DC Building",
-    "ULC Building",
-    "Main Gate"
-
+    {
+        name: "Solar Parking",
+        image: "rout 1 solar parking.jpg",
+        time: "4 min walk"
+    },
+    {
+        name: "Dental Parking",
+        image: "rout 2 dental parking.jpg",
+        time: "6 min walk"
+    },
+    {
+        name: "Dental Building",
+        image: "rout 3 dental building.jpg",
+        time: "6 min walk"
+    },
+    {
+        name: "Student Parking",
+        image: "rout 4 student parking.jpg",
+        time: "5 min walk"
+    },
+    {
+        name: "SOE Building",
+        image: "rout 5 SOE building.jpg",
+        time: "5 min walk"
+    },
+    {
+        name: "Tuck Shop",
+        image: "rout 6 tuck shop.jpg",
+        time: "4 min walk"
+    },
+    {
+        name: "Canteen",
+        image: "rout 7 canteen.jpg",
+        time: "4 min walk"
+    },
+    {
+        name: "Hostel",
+        image: "rout 8 hostel.jpg",
+        time: "7 min walk"
+    },
+    {
+        name: "DC Building",
+        image: "rout 9 DC building.jpg",
+        time: "6 min walk"
+    },
+    {
+        name: "DY PATIL International School",
+        image: "rout 10 DY PATIL INTERNATIONAL SCHOOL.jpg",
+        time: "8 min walk"
+    }
 ];
-
-
-/* ELEMENTS */
 
 const destinationInput =
-    document.getElementById(
-        "destinationInput"
-    );
+    document.getElementById("destinationInput");
 
 const suggestions =
-    document.getElementById(
-        "suggestions"
-    );
+    document.getElementById("suggestions");
 
 const routeButton =
-    document.getElementById(
-        "routeButton"
-    );
+    document.getElementById("routeButton");
 
 const clearButton =
-    document.getElementById(
-        "clearButton"
-    );
+    document.getElementById("clearButton");
 
 const quickLocations =
-    document.getElementById(
-        "quickLocations"
-    );
+    document.getElementById("quickLocations");
 
 const result =
-    document.getElementById(
-        "result"
-    );
+    document.getElementById("result");
 
 const resultTitle =
-    document.getElementById(
-        "resultTitle"
-    );
+    document.getElementById("resultTitle");
 
 const resultText =
-    document.getElementById(
-        "resultText"
-    );
+    document.getElementById("resultText");
 
 const campusMap =
-    document.getElementById(
-        "campusMap"
-    );
-
-const routeLine =
-    document.getElementById(
-        "routeLine"
-    );
+    document.getElementById("campusMap");
 
 const startMarker =
-    document.getElementById(
-        "startMarker"
-    );
+    document.getElementById("startMarker");
 
 const endMarker =
-    document.getElementById(
-        "endMarker"
-    );
+    document.getElementById("endMarker");
+
+const routeLine =
+    document.getElementById("routeLine");
 
 const toast =
-    document.getElementById(
-        "toast"
-    );
+    document.getElementById("toast");
+
+const mapMessage =
+    document.querySelector(".map-message");
 
 
 /* =========================================
-   QUICK DESTINATION BUTTONS
+   QUICK DESTINATIONS
 ========================================= */
 
-const popularLocations = [
+locations.forEach(location => {
 
-    "SOE Building",
-    "Canteen",
-    "Hostel",
-    "DC Building",
-    "Dental Building",
-    "Student Parking"
+    const button =
+        document.createElement("button");
 
-];
+    button.className = "chip";
 
+    button.textContent =
+        location.name;
 
-popularLocations.forEach(
-    location => {
+    button.addEventListener(
+        "click",
+        () => {
 
-        const button =
-            document.createElement(
-                "button"
-            );
+            destinationInput.value =
+                location.name;
 
-        button.className =
-            "chip";
+            showRoute(location);
 
-        button.textContent =
-            location;
+        }
+    );
 
-        button.addEventListener(
-            "click",
-            () => {
+    quickLocations.appendChild(button);
 
-                destinationInput.value =
-                    location;
-
-                showToast(
-                    location +
-                    " selected"
-                );
-
-            }
-        );
-
-        quickLocations.appendChild(
-            button
-        );
-
-    }
-);
+});
 
 
 /* =========================================
-   SEARCH AUTOCOMPLETE
+   SEARCH
 ========================================= */
 
 destinationInput.addEventListener(
     "input",
-    function () {
+    () => {
 
-        const value =
-            this.value
+        const search =
+            destinationInput.value
                 .trim()
                 .toLowerCase();
 
-
         suggestions.innerHTML = "";
 
-
-        if (!value) {
+        if (!search) {
 
             suggestions.classList.remove(
                 "show"
             );
 
             return;
-
         }
 
-
-        const filtered =
+        const matches =
             locations.filter(
                 location =>
-                    location
+                    location.name
                         .toLowerCase()
-                        .includes(value)
+                        .includes(search)
             );
 
+        matches.forEach(location => {
 
-        filtered.forEach(
-            location => {
+            const item =
+                document.createElement("div");
 
-                const item =
-                    document.createElement(
-                        "div"
+            item.className =
+                "suggestion";
+
+            item.textContent =
+                location.name;
+
+            item.addEventListener(
+                "click",
+                () => {
+
+                    destinationInput.value =
+                        location.name;
+
+                    suggestions.classList.remove(
+                        "show"
                     );
 
-                item.className =
-                    "suggestion";
+                }
+            );
 
-                item.textContent =
-                    location;
+            suggestions.appendChild(item);
 
+        });
 
-                item.addEventListener(
-                    "click",
-                    () => {
-
-                        destinationInput.value =
-                            location;
-
-                        suggestions.classList.remove(
-                            "show"
-                        );
-
-                    }
-                );
-
-
-                suggestions.appendChild(
-                    item
-                );
-
-            }
-        );
-
-
-        if (filtered.length) {
+        if (matches.length) {
 
             suggestions.classList.add(
                 "show"
@@ -231,161 +199,89 @@ destinationInput.addEventListener(
 
 
 /* =========================================
-   CLOSE SEARCH
-========================================= */
-
-document.addEventListener(
-    "click",
-    event => {
-
-        if (
-            !event.target.closest(
-                ".destination"
-            )
-        ) {
-
-            suggestions.classList.remove(
-                "show"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   ROUTE DATA
-========================================= */
-
-
-/*
-   These coordinates are percentages
-   inside the map.
-
-   You can adjust them later according
-   to your actual OG_MAP.jpg.
-*/
-
-const routePoints = {
-
-    "SOE Building": {
-        x: 70,
-        y: 35,
-        distance: "5 min walk"
-    },
-
-    "Student Parking": {
-        x: 25,
-        y: 70,
-        distance: "4 min walk"
-    },
-
-    "Tuck Shop": {
-        x: 57,
-        y: 48,
-        distance: "3 min walk"
-    },
-
-    "Hostel": {
-        x: 80,
-        y: 70,
-        distance: "7 min walk"
-    },
-
-    "DY PATIL School": {
-        x: 18,
-        y: 25,
-        distance: "8 min walk"
-    },
-
-    "Dental Building": {
-        x: 40,
-        y: 55,
-        distance: "6 min walk"
-    },
-
-    "Dental Parking": {
-        x: 35,
-        y: 75,
-        distance: "6 min walk"
-    },
-
-    "Canteen": {
-        x: 55,
-        y: 60,
-        distance: "4 min walk"
-    },
-
-    "DC Building": {
-        x: 63,
-        y: 25,
-        distance: "6 min walk"
-    },
-
-    "ULC Building": {
-        x: 75,
-        y: 50,
-        distance: "5 min walk"
-    },
-
-    "Main Gate": {
-        x: 10,
-        y: 50,
-        distance: "Starting point"
-    }
-
-};
-
-
-/* =========================================
-   FIND ROUTE
+   FIND ROUTE BUTTON
 ========================================= */
 
 routeButton.addEventListener(
     "click",
-    findRoute
+    () => {
+
+        const value =
+            destinationInput.value
+                .trim()
+                .toLowerCase();
+
+        if (!value) {
+
+            showToast(
+                "Please select a destination."
+            );
+
+            return;
+        }
+
+        const location =
+            locations.find(
+                item =>
+                    item.name
+                        .toLowerCase() === value
+            );
+
+        if (!location) {
+
+            showToast(
+                "Please select a valid destination."
+            );
+
+            return;
+        }
+
+        showRoute(location);
+
+    }
 );
 
 
-function findRoute() {
+/* =========================================
+   SHOW ACTUAL ROUTE
+========================================= */
 
-    const destination =
-        destinationInput.value.trim();
+function showRoute(location) {
 
+    /*
+        IMPORTANT:
 
-    if (!destination) {
+        Instead of drawing a guessed
+        straight line, we load the
+        actual route image that starts
+        from Main Gate.
+    */
 
-        showToast(
-            "Please select a destination."
-        );
+    campusMap.src =
+        location.image;
 
-        destinationInput.focus();
+    campusMap.style.transform =
+        "scale(1)";
 
-        return;
-
-    }
-
-
-    const location =
-        routePoints[
-            destination
-        ];
-
-
-    if (!location) {
-
-        showToast(
-            "Destination not available."
-        );
-
-        return;
-
-    }
+    zoom = 1;
 
 
-    drawRoute(
-        location
+    /*
+        Hide fake route line because
+        the route is already present
+        in the real route image.
+    */
+
+    routeLine.classList.remove(
+        "show"
+    );
+
+    startMarker.classList.remove(
+        "show"
+    );
+
+    endMarker.classList.remove(
+        "show"
     );
 
 
@@ -395,113 +291,29 @@ function findRoute() {
 
 
     resultTitle.textContent =
-        destination;
+        location.name;
 
 
     resultText.textContent =
-        "From Main Gate • " +
-        location.distance;
+        "Starting from Main Gate • " +
+        location.time;
+
+
+    mapMessage.textContent =
+        "Route from Main Gate → " +
+        location.name;
 
 
     showToast(
-        "Route found to " +
-        destination
+        "Route loaded: " +
+        location.name
     );
 
 }
 
 
 /* =========================================
-   DRAW ROUTE
-========================================= */
-
-function drawRoute(
-    destination
-) {
-
-    const startX = 10;
-
-    const startY = 50;
-
-    const endX =
-        destination.x;
-
-    const endY =
-        destination.y;
-
-
-    /* MARKERS */
-
-    startMarker.style.left =
-        startX + "%";
-
-    startMarker.style.top =
-        startY + "%";
-
-
-    endMarker.style.left =
-        endX + "%";
-
-    endMarker.style.top =
-        endY + "%";
-
-
-    startMarker.classList.add(
-        "show"
-    );
-
-    endMarker.classList.add(
-        "show"
-    );
-
-
-    /* ROUTE LINE */
-
-    const dx =
-        endX - startX;
-
-    const dy =
-        endY - startY;
-
-
-    const distance =
-        Math.sqrt(
-            dx * dx +
-            dy * dy
-        );
-
-
-    const angle =
-        Math.atan2(
-            dy,
-            dx
-        ) *
-        180 /
-        Math.PI;
-
-
-    routeLine.style.left =
-        startX + "%";
-
-    routeLine.style.top =
-        startY + "%";
-
-    routeLine.style.width =
-        distance + "%";
-
-    routeLine.style.transform =
-        `rotate(${angle}deg)`;
-
-
-    routeLine.classList.add(
-        "show"
-    );
-
-}
-
-
-/* =========================================
-   CLEAR
+   CLEAR ROUTE
 ========================================= */
 
 clearButton.addEventListener(
@@ -512,15 +324,23 @@ clearButton.addEventListener(
 
 function clearRoute() {
 
-    destinationInput.value =
-        "";
+    destinationInput.value = "";
 
-    suggestions.innerHTML =
-        "";
+    suggestions.innerHTML = "";
 
     suggestions.classList.remove(
         "show"
     );
+
+
+    campusMap.src =
+        "OG_MAP.jpg";
+
+
+    campusMap.style.transform =
+        "scale(1)";
+
+    zoom = 1;
 
 
     routeLine.classList.remove(
@@ -540,21 +360,22 @@ function clearRoute() {
         "show"
     );
 
+
+    mapMessage.textContent =
+        "Select a destination to show route";
+
 }
 
 
 /* =========================================
-   MAP ZOOM
+   ZOOM
 ========================================= */
 
-let zoom =
-    1;
+let zoom = 1;
 
 
 document
-    .getElementById(
-        "zoomIn"
-    )
+    .getElementById("zoomIn")
     .addEventListener(
         "click",
         () => {
@@ -572,9 +393,7 @@ document
 
 
 document
-    .getElementById(
-        "zoomOut"
-    )
+    .getElementById("zoomOut")
     .addEventListener(
         "click",
         () => {
@@ -604,16 +423,10 @@ function updateZoom() {
 ========================================= */
 
 document
-    .getElementById(
-        "resetButton"
-    )
+    .getElementById("resetButton")
     .addEventListener(
         "click",
         () => {
-
-            zoom = 1;
-
-            updateZoom();
 
             clearRoute();
 
@@ -626,15 +439,57 @@ document
 
 
 /* =========================================
+   ENTER KEY
+========================================= */
+
+destinationInput.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            routeButton.click();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   CLOSE SUGGESTIONS
+========================================= */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            !event.target.closest(
+                ".destination"
+            )
+        ) {
+
+            suggestions.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
    TOAST
 ========================================= */
 
 let toastTimer;
 
 
-function showToast(
-    message
-) {
+function showToast(message) {
 
     toast.textContent =
         message;
@@ -662,24 +517,3 @@ function showToast(
         );
 
 }
-
-
-/* =========================================
-   ENTER KEY
-========================================= */
-
-destinationInput.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key ===
-            "Enter"
-        ) {
-
-            findRoute();
-
-        }
-
-    }
-);
