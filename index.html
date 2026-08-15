@@ -3,33 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>College Navigation</title>
+    <title>CampusNav | Smart Campus Navigation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <!-- Add your college logo here -->
-        <img src="assets\images\logo.png" alt="College Logo" id="college-logo">
-        
-    </header>
-    
-    <main>
-        <div id="map-container">
-            <img src="assets\images\OG_MAP.jpg" alt="Campus Map">
-            <div id="start-end-points">
-                <div id="start-point">
-                    <label for="start-input">Start Point:</label>
-                    <input type="text" id="start-input" value="Main Gate" readonly>
-                </div>
-                <div id="end-point">
-                    <label for="end-input">End Point:</label>
-                    <input type="text" id="end-input" placeholder="Type or select end location">
-                </div>
-                <button id="find-route-btn">Find Route</button>
-            </div>
-        </div>
-    </main>
 
-    <script src="js/main.js"></script>
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <img src="logo.png" alt="Campus Logo">
+
+        <div>
+            <h2>CampusNav</h2>
+            <span>Smart Campus Navigation</span>
+        </div>
+    </div>
+
+    <div class="online">
+        <span></span>
+        Campus Map Online
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <div>
+            <p class="tag">CAMPUS WAYFINDER</p>
+
+            <h1>
+                Find your way<br>
+                around campus.
+            </h1>
+
+            <p class="description">
+                Select a destination and quickly find your route
+                from the Main Gate.
+            </p>
+        </div>
+
+    </section>
+
+
+    <section class="workspace">
+
+        <!-- LEFT CONTROL PANEL -->
+
+        <aside class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <p class="small-title">NAVIGATION</p>
+                    <h2>Plan a Route</h2>
+                </div>
+
+                <span class="live">
+                    ● Live
+                </span>
+
+            </div>
+
+
+            <!-- START -->
+
+            <div class="field">
+
+                <label>START LOCATION</label>
+
+                <div class="input-box">
+
+                    <span class="location-icon start">
+                        ●
+                    </span>
+
+                    <input
+                        id="startInput"
+                        value="Main Gate"
+                        readonly
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="line"></div>
+
+
+            <!-- DESTINATION -->
+
+            <div class="field destination">
+
+                <label>DESTINATION</label>
+
+                <div class="input-box">
+
+                    <span class="location-icon end">
+                        ●
+                    </span>
+
+                    <input
+                        id="destinationInput"
+                        type="text"
+                        placeholder="Search destination..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+                <div
+                    id="suggestions"
+                    class="suggestions">
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                id="routeButton"
+                class="route-button">
+
+                Find Route
+                <span>→</span>
+
+            </button>
+
+
+            <button
+                id="clearButton"
+                class="clear-button">
+
+                Clear Selection
+
+            </button>
+
+
+            <!-- QUICK LOCATIONS -->
+
+            <div class="quick">
+
+                <p>POPULAR DESTINATIONS</p>
+
+                <div
+                    id="quickLocations"
+                    class="chips">
+                </div>
+
+            </div>
+
+
+            <!-- RESULT -->
+
+            <div
+                id="result"
+                class="result">
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong id="resultTitle">
+                        Route Ready
+                    </strong>
+
+                    <p id="resultText">
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAP -->
+
+        <section class="map-card">
+
+            <div class="map-header">
+
+                <div>
+                    <strong>Campus Map</strong>
+
+                    <span>
+                        Interactive Campus Overview
+                    </span>
+                </div>
+
+                <button id="resetButton">
+                    ⌖ Reset
+                </button>
+
+            </div>
+
+
+            <div
+                id="mapContainer"
+                class="map-container">
+
+                <img
+                    id="campusMap"
+                    src="OG_MAP.jpg"
+                    alt="Campus Map"
+                >
+
+
+                <!-- ROUTE -->
+
+                <div
+                    id="routeLine"
+                    class="route-line">
+                </div>
+
+
+                <!-- START MARKER -->
+
+                <div
+                    id="startMarker"
+                    class="marker start-marker">
+                </div>
+
+
+                <!-- END MARKER -->
+
+                <div
+                    id="endMarker"
+                    class="marker end-marker">
+                </div>
+
+
+                <!-- MAP CONTROLS -->
+
+                <div class="map-controls">
+
+                    <button id="zoomIn">
+                        +
+                    </button>
+
+                    <button id="zoomOut">
+                        −
+                    </button>
+
+                </div>
+
+
+                <div class="map-message">
+
+                    Select a destination to show route
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
